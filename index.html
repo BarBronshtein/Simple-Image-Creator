@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Practicing Canvas</title>
+  </head>
+
+  <body onload="init()">
+    <div class="canvas-container">
+      <canvas
+        height="450"
+        width="500"
+        class="my-canvas"
+        onmouseover="onSetEvHandlerOff()"
+        onclick="draw(event)"
+        >Update Your Browser!</canvas
+      >
+    </div>
+    <div class="features">
+      <button class="btn" onclick="onSetShape(this.textContent)">Rect</button>
+      <button class="btn" onclick="onSetShape(this.textContent)">Circle</button>
+      <button class="btn" onclick="onSetShape(this.textContent)">Text</button>
+      <button class="btn" onclick="onSetShape(this.textContent)">Square</button>
+      <button class="btn" onclick="onSetShape(this.textContent)">Arc</button>
+      <button class="btn" onclick="onSetShape(this.textContent.trim())">
+        Triangle
+      </button>
+      <button class="btn" onclick="clearCanvas()">Clear</button>
+      <a class="btn" onclick="downloadImg(this)" href="" download="my-Img.jpg"
+        >Download</a
+      >
+      <div class="colors">
+        <label
+          >Fill Color:
+          <input
+            onchange="onSetFillClr(this.value)"
+            type="color"
+            name="fill-color"
+        /></label>
+        <label onchange=""
+          >Stroke Color:
+          <input
+            onchange="onSetStorkeClr(this.value)"
+            type="color"
+            name="fill-color"
+        /></label>
+      </div>
+      <div class="features">
+        <form onsubmit="onSetSize(event,this)">
+          <label>Size: <input type="number" name="size" /></label>
+          <button class="btn">Submit!</button>
+        </form>
+        <form onsubmit="onSetText(event,this)">
+          <label>Text: <input type="text" name="text" /></label>
+          <button class="btn">Submit!</button>
+        </form>
+      </div>
+    </div>
+    <input
+      type="file"
+      class="file-input btn"
+      name="image"
+      onchange="onImgInput(event)"
+    />
+    <button class="btn" onclick="uploadImg()">Upload Image from Canvas</button>
+    <p class="user-msg"></p>
+    <div class="share-container"></div>
+    <script src="js/controller.js"></script>
+    <script src="js/service.js"></script>
+  </body>
+</html>
